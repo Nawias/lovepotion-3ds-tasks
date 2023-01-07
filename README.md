@@ -43,4 +43,5 @@ You can start using tasks by pressing the `F1` to bring up the global menu and t
 
 ### Task Buttons
 I strongly recommend using the [Task Buttons extension](https://marketplace.visualstudio.com/items?itemName=spencerwmiles.vscode-task-buttons) by spencerwmiles. This gives you four convenient buttons on the bottom of your editor that launch the tasks for you.
+
 ![image](https://user-images.githubusercontent.com/26334081/211162008-c60efd83-362f-4b94-94e6-61ff659969a4.png)
