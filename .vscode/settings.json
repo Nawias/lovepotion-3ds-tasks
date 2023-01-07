@@ -1,0 +1,31 @@
+{
+    "VsCodeTaskButtons.showCounter": true,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(notebook-move-down) Build",
+            "task": "Build",
+            "tooltip": "🛠️ Start the \"build\" task"
+        },
+        {
+            "label": "$(search-refresh) Rebuild",
+            "task": "Rebuild",
+            "tooltip": "🧹🛠️ Start the \"Rebuild\" task"
+        },
+        {
+            "label": "$(notebook-delete-cell) Clean",
+            "task": "clean",
+            "tooltip": "🧹 Start a \"clean\" task"
+        },
+        {
+            "label": "$(arrow-up) Deploy",
+            "task": "Deploy",
+            "tooltip": "🎮 Start a \"Deploy\" task"
+        }
+    ],
+    "LTasks.gameName":"SuperGame",
+    "LTasks.sourceDir":"game",
+    "LTasks.buildDir":"build",
+    "LTasks.distDir":"dist",
+    "LTasks.lua": "lua",
+    "LTasks.3dsip": "192.168.1.123"
+}

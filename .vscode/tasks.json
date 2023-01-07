@@ -1,0 +1,92 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "prebuild",
+            "type": "shell",
+            "windows":{
+                "command": "echo PREBUILD;cp -r ..\\${config:LTasks.sourceDir} ..\\${config:LTasks.distDir};echo DONE;",
+            },
+            "command": "echo PREBUILD;cp -r ../${config:LTasks.sourceDir} ../${config:LTasks.distDir};echo DONE;",
+            "problemMatcher": [],
+            "group": "build",
+            "hide": true
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "windows":{
+                "command": "echo BUILD;cd ..; lovebrew build; cd .\\${config:LTasks.sourceDir};echo DONE;",
+            },
+            "command": "echo BUILD;cd ..; lovebrew build; cd ./${config:LTasks.sourceDir};echo DONE;",
+            "group": "build",
+            "problemMatcher": [],
+            "hide": true
+        },
+        {
+            "label": "postbuild",
+            "type": "shell",
+            "windows":{
+                "command": "echo POSTBUILD;rm -r ..\\${config:LTasks.distDir};echo DONE;",
+            },
+            "command": "echo POSTBUILD;rm -r ../${config:LTasks.distDir};echo DONE;",
+            "problemMatcher": [],
+            "group": "build",
+            "hide": true
+        },
+        {
+            "label": "preprocess",
+            "type": "shell",
+            "windows":{
+                "command": "${config:LTasks.lua} .\\preprocessor.lua",
+            },
+            "command": "${config:LTasks.lua} ./preprocessor.lua",
+            "problemMatcher": [],
+            "group": "build",
+            "hide": true
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "windows":{
+                "command": "echo CLEANING;cd ..; lovebrew clean; cd .\\${config:LTasks.sourceDir};echo DONE",
+            },
+            "command": "echo CLEANING;cd ..; lovebrew clean; cd ./${config:LTasks.sourceDir};echo DONE;",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "prebuild",
+                "preprocess",
+                "build",
+                "postbuild"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Rebuild",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "clean",
+                "Build"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Deploy",
+            "type": "shell",
+            "windows":{
+                "command": "3dslink ..\\${config:LTasks.buildDir}\\${config:LTasks.gameName}.3dsx -a ${config:LTasks.3dsip} -0 sdmc:/3ds/${config:LTasks.gameName}.3dsx",
+            },
+            "command": "3dslink ../${config:LTasks.buildDir}/${config:LTasks.gameName}.3dsx -a ${config:LTasks.3dsip} -0 sdmc:/3ds/${config:LTasks.gameName}.3dsx",
+            "problemMatcher": []
+        }
+    ]
+}
