@@ -23,7 +23,7 @@ Then, copy the following settings from `lovebrew.toml` to `.vscode\settings.json
 | `buildDir = "build"` | `"LTasks.buildDir" : "build"` |
 
 Next, configure `LTasks.lua` in `settings.json` to point to the lua executable on your system (e.g. `C:\\Lua\\lua54.exe` on Windows or `/usr/local/bin/lua` on macOS/Linux) or lua command (just `lua` by default).
-You can also change the intermediate building directory by changing `LTasks.distDir` (`dist` by default). This is the directory that the files are copied to before preprocessing.
+You can also change the intermediate building directory by changing `LTasks.distDir` (`dist` by default). This is the directory that the files are copied to before preprocessing. You should set this directory as `source` in `lovebrew.toml`.
 
 ## Preprocessor
 **NOTE: Modification of `preprocessor.lua` is NOT fully fool-proof - it gives you freedom to do what you want. You should know what you're doing when modyfiing the file. I am NOT responsible if you clear your hard drive with a badly-written script.**
